@@ -1,0 +1,80 @@
+
+<div class="card login-container login-form-2 clr">
+    <h2 class="text-center "><strong>Employee Form</strong></h2>
+    <div class="card-body">
+        <form [formGroup]="registerForm" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" enctype="multipart/form-data" method="POST">
+            <div class="form-row">
+                <!-- <div class="form-group col">
+                    <label><strong>Department</strong></label>
+                    <select formControlName="deptid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.deptid.errors }">
+                        <option value=""></option>
+                        <option name="it" value="1">IT</option>
+                        <option name="ac" value="2">Accounting</option>
+                        
+                    </select>
+                    <div *ngIf="submitted && f.deptid.errors" class="invalid-feedback">
+                        <div *ngIf="f.deptid.errors.required">Department is required</div>
+                    </div>
+                </div> -->
+               
+
+  
+            </div>
+            <div class="form-group col-12">
+                <label><strong>Employee Name</strong></label>
+                <input type="text" formControlName="employeeName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.employeeName.errors }" />
+                <div *ngIf="submitted && f.employeeName.errors" class="invalid-feedback">
+                    <div *ngIf="f.employeeName.errors.required">Employee Name is required</div>
+                </div>
+          
+              </div>
+
+            <div class="form-group col-12">
+                <label><strong>Employee Salary</strong></label>
+                <input type="text" formControlName="employeeSalary" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.employeeSalary.errors }" />
+                <div *ngIf="submitted && f.employeeSalary.errors" class="invalid-feedback">
+                    <div *ngIf="f.employeeSalary.errors.required">Salary is required &&  must be Max 5 characters</div>
+                    <div *ngIf="f.employeeSalary.errors.maxLength">ٍsalary must be Max 5 characters</div>
+                </div>
+          
+              </div>
+              
+           
+  
+            <div class="form-row">
+  
+           
+              
+              <div class="form-group col-6">
+                  <label><strong>Gender</strong></label>
+                  <select formControlName="employeeGender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.employeeGender.errors }">
+                      <option value=""></option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                  </select>
+                  <div *ngIf="submitted && f.employeeGender.errors" class="invalid-feedback">
+                      <div *ngIf="f.employeeGender.errors.required">Gender is required</div>
+                  </div>
+              </div>
+              <div class="form-group col-6"> 
+                <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="date" formControlName="employeeBirthDate" class="form-control" id="exampleInputDOB1" placeholder="Date of Birth"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.employeeBirthDate.errors }">
+                <div *ngIf="submitted && f.employeeBirthDate.errors" class="invalid-feedback">
+                    <div *ngIf="f.employeeBirthDate.errors.required">Date of Birth is required</div>
+                </div>
+              </div>
+          </div>
+          
+         
+  
+            </div>
+  
+           
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Register</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
+    </div>
+  </div>

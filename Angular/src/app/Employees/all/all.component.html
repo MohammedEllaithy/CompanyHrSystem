@@ -1,0 +1,50 @@
+<div class="container" style="margin-bottom:20px;padding-top:20px;">  
+    <div class="row">  
+      <div class="col-sm-12 btn btn-success">  
+        Employee's Information  
+      </div>  
+    </div>  
+    <div class="col-sm-12" style="margin-bottom:20px;padding-top:20px;">  
+      <div class="row">  
+        <div class="col-sm-6">  
+          <button type="button" class="btn btn-primary" data-toggle="modal" routerLink="">  
+            Add New Employee  
+          </button>  
+        </div>  
+        <div class="col-sm-6">  
+          <input class="form-control" type="text" name="search" [(ngModel)]="filter" placeholder="Search">  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+  <div class="container" style="padding-top:20px;">  
+    <table class="table table-striped">  
+      <thead class="thead-dark">  
+        <th>Name</th>  
+        <th>Gender</th>  
+        <th>Date Of Birth</th>   
+        <th>Salary</th>  
+        <th>Action</th>  
+       
+      </thead>  
+      <tbody>  
+        <tr *ngFor="let e of emp |filter:filter | paginate: { itemsPerPage: 5, currentPage: p } ; let i=index">  
+          <td>{{e.employeeName}}</td>  
+          <td>{{e.employeeGender}}</td>  
+          <td>{{e.employeeBirthDate}}</td>  
+          <td>{{e.employeeSalary}}</td>  
+           
+          <td>  
+            <div class="btn-group">  
+              <!-- <button type="button" class="btn btn-primary mr-1" (click)="EmployeeEdit(e.Id)">Edit</button>  -->
+              <a routerLink="Edit/{{e.employeeID}}" class="btn btn-success mr-2" >Edit</a> 
+              <button type="button" class="btn btn-danger mr-1" (click)="Deleteemployee(e.employeeID)">Delete</button>  
+            </div>  
+          </td>  
+        </tr>  
+      </tbody>  
+    </table>  
+    <ul class="pagination">  
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>  
+    </ul>  
+  </div>
